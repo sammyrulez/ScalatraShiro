@@ -34,7 +34,7 @@
     <properties>
         <scala.version>2.10.2</scala.version>
         <scala.tools.version>2.15.2</scala.tools.version>
-        <scalatra.version>2.2.1</scalatra.version>
+        <scalatra.version>2.3.1</scalatra.version>
         <jetty.version>9.0.3.v20130506</jetty.version>
         <javax.servlet.version>2.5</javax.servlet.version>
         <shiro.version>1.2.3</shiro.version>
