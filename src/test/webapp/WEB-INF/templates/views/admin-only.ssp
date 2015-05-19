@@ -1,0 +1,3 @@
+<%@ var title: String = "Admin Only" %>
+
+<h2>Only admins can view this page</h2>

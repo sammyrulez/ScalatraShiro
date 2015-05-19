@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<% import org.apache.shiro.SecurityUtils %>
+<% import org.scalatra.scalate.ScalatraRenderContext %>
+
+<%@ var body: String %>
+<%@ var title: String = "Scalatra Shiro" %>
+
+<% var flash = context.asInstanceOf[ScalatraRenderContext].flash %>
+<% var isAuthenticated = SecurityUtils.getSubject().isAuthenticated() %>
+
+<html>
+<head>
+
+</head>
+
+<body>
+<div class="container">
+<nav>
+    <a href="/">Home</a> |
+    #if(isAuthenticated == true)
+        <a href="/logout">Logout</a>
+    #else
+        <a href="/login">Login</a>
+    #end
+</nav>
+
+<br/>
+
+    <div style="color: green">
+    ${flash.get("success")}
+    </div>
+
+    <div style="color: red">
+    ${flash.get("error")}
+    </div>
+
+    <br/>
+
+        ${unescape(body)}
+    </div>
+</body>
+</html>

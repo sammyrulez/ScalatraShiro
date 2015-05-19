@@ -1,9 +1,11 @@
+
+
 *.class
 *.log
-
 # sbt specific
-.cache
-.history
+.cache/
+
+.history/
 .lib/
 dist/*
 target/
@@ -15,3 +17,10 @@ project/plugins/project/
 # Scala-IDE specific
 .scala_dependencies
 .worksheet
+.cache
+.settings
+.classpath
+.project
+.iml
+
+#https://farm8.staticflickr.com/7020/6506125099_0c74a1bbab.jpg
