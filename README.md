@@ -1,0 +1,2 @@
+# ScalatraShiro
+ScalatraShiro
