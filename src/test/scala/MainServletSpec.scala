@@ -79,6 +79,62 @@ class MainServletSpec extends ScalatraFlatSpec with ShouldMatchers with BeforeAn
     }
   }
 
+  "GET /perm-required" should "require a user to be logged in" in {
+    session {
+      // User should be redirected to login page.
+      get("/perm-required") {
+        assert(response.status == 302)
+      }
+
+      // login the user
+      post("/login", Map("username" -> "testUser", "password" -> "password")) {}
+
+      get("/perm-required") {
+        assert(body.contains("<h2>Must be logged in to view this page.</h2>"))
+      }
+    }
+  }
+
+  "GET /perms-required" should "require a user to be logged in with at least one of the permission" in {
+    session {
+      // User should be redirected to login page.
+      get("/perms-required") {
+        assert(response.status == 302)
+      }
+
+      // login the user
+      post("/login", Map("username" -> "testUser", "password" -> "password")) {}
+
+      get("/perms-required") {
+        assert(body.contains("<h2>Must be logged in to view this page.</h2>"))
+      }
+    }
+  }
+
+  "GET /all-perms-required" should "require a user to be logged in with all permissions" in {
+    session {
+      // User should be redirected to login page.
+      get("/all-perms-required") {
+        assert(response.status == 302)
+      }
+
+      // login the user
+      post("/login", Map("username" -> "testUser", "password" -> "password")) {}
+
+      get("/all-perms-required") {
+        assert(response.status == 302)
+      }
+
+      get("/logout") {}
+
+      post("/login", Map("username" -> "admin", "password" -> "admin")) {}
+
+      get("/all-perms-required") {
+        assert(body.contains("<h2>Must be logged in to view this page.</h2>"))
+      }
+    }
+  }
+
   "GET /admin-only" should "only be accessable by admin users" in {
     session {
       get("/admin-only") {

@@ -71,8 +71,37 @@ class MainServlet extends WebStack {
     ssp("auth-required.ssp")
   }
 
+  get("/perm-required") {
+    requiresPermission("BasicAccess")
+
+    ssp("auth-required.ssp")
+  }
+
+  get("/perms-required") {
+    requiresPermission(List("BasicAccess"))
+
+    ssp("auth-required.ssp")
+  }
+
+  get("/all-perms-required") {
+    requiresAllPermissions(List("AbstractCon"))
+    ssp("auth-required.ssp")
+  }
+
   get("/admin-only") {
     requiresRole("admin")
+
+    ssp("/admin-only.ssp")
+  }
+
+  get("/admins-only") {
+    requiresRole(List("admin", "super"))
+
+    ssp("/admin-only.ssp")
+  }
+
+  get("/super-secure") {
+    requiresAllRoles(List("admin", "super"))
 
     ssp("/admin-only.ssp")
   }
