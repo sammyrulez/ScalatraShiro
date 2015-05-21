@@ -122,7 +122,7 @@ class MainServletSpec extends ScalatraFlatSpec with ShouldMatchers with BeforeAn
       post("/login", Map("username" -> "testUser", "password" -> "password")) {}
 
       get("/all-perms-required") {
-        assert(response.status == 302)
+        assert(response.status == 401)
       }
 
       get("/logout") {}

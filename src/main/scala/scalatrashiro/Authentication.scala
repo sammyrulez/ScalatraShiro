@@ -38,7 +38,7 @@ trait Authentication extends ScalatraBase with ScalateSupport {
   def requiresAllRoles(roles: List[String]) {
     requiresAuthentication()
 
-    roles.map(r => if (currentUser.hasRole(r)) unauthorized)
+    roles.map(r => if (!currentUser.hasRole(r)) unauthorized)
   }
 
   def requiresPermission(permission: String) {
@@ -58,6 +58,6 @@ trait Authentication extends ScalatraBase with ScalateSupport {
   def requiresAllPermissions(permissions: List[String]) {
     requiresAuthentication()
 
-    permissions.map(p => if (currentUser.isPermitted(p)) unauthorized)
+    permissions.map(p => if (!currentUser.isPermitted(p)) unauthorized)
   }
 }
