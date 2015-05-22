@@ -148,6 +148,10 @@ class MainServletSpec extends ScalatraFlatSpec with ShouldMatchers with BeforeAn
         assert(body.contains("<h2>401 Forbidden</h2>"))
       }
 
+      get("/admins-only") {
+        assert(body.contains("<h2>401 Forbidden</h2>"))
+      }
+
       get("/super-secure") {
         assert(body.contains("<h2>401 Forbidden</h2>"))
       }
@@ -159,6 +163,10 @@ class MainServletSpec extends ScalatraFlatSpec with ShouldMatchers with BeforeAn
       post("/login", Map("username" -> "admin", "password" -> "admin")) {}
 
       get("/admin-only") {
+        assert(body.contains("<h2>Only admins can view this page</h2>"))
+      }
+
+      get("/admins-only") {
         assert(body.contains("<h2>Only admins can view this page</h2>"))
       }
 
