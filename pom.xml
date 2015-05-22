@@ -31,6 +31,17 @@
         </url>
     </ciManagement>
 
+    <distributionManagement>
+        <repository>
+            <id>oss.sonatype.release</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>oss.sonatype.snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <properties>
         <scala.version>2.10.2</scala.version>
         <scala.tools.version>2.15.2</scala.tools.version>
