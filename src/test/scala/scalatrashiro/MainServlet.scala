@@ -58,6 +58,7 @@ class MainServlet extends WebStack {
 
     try {
       subject.logout()
+      logOut()
       flash("success") = "Logged out successfuly."
       ssp("index.ssp")
     } catch {
