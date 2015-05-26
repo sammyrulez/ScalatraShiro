@@ -3,6 +3,10 @@
 [![Build Status](https://travis-ci.org/sammyrulez/ScalatraShiro.svg?branch=master)](https://travis-ci.org/sammyrulez/ScalatraShiro)
 [![Coverage Status](https://coveralls.io/repos/sammyrulez/ScalatraShiro/badge.svg)](https://coveralls.io/r/sammyrulez/ScalatraShiro)
 
+
+ScalatraShiro is an itegration to enable the use of Apache Shiro in Scalatra Application.
+It is not a replacement for scalatra auth (Scentry) but exteds it with a authorizazion layer ( roles and permissions)
+
 ##Installation
 
 ###Maven
@@ -78,14 +82,29 @@ admin = *
 
 ```
 
-Every servlet you want to perform security checks must extends the Authentication Trait
+Every controller you want to perform security checks must extends the Authentication Trait
 
 ```scala
 class MainServlet extends ScalatraServlet with Authentication with ...
 
 ```
 
+You might choose to run the authorization checks  in a before() filter in your controller, rather than hitting it in each action, to secure every method. As a best practice you should group routes with same access policies in one controller.
 
+
+###Login and Logout
+
+
+
+###Access control
+
+You can check both roles and permissions (https://shiro.apache.org/authorization.html#Authorization-Permissions)
+
+* requiresAuthentication
+
+* requiresRole
+
+* requiresAllRoles
 
 
 
