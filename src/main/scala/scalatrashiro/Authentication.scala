@@ -1,11 +1,26 @@
 package scalatrashiro
 
 import org.apache.shiro.SecurityUtils
+import org.apache.shiro.subject.Subject
 import org.scalatra.ScalatraBase
+import org.scalatra.auth.{ScentryConfig, ScentrySupport}
 import org.scalatra.scalate.ScalateSupport
 
-trait Authentication extends ScalatraBase with ScalateSupport {
+trait Authentication extends ScalatraBase with ScalateSupport with ScentrySupport[Subject] {
+
   private def currentUser = SecurityUtils.getSubject()
+
+  protected def fromSession = {
+    case id: String => currentUser
+  }
+
+  protected def toSession = {
+    case usr: Subject => usr.getPrincipal.toString
+  }
+
+  protected val scentryConfig = (new ScentryConfig {}).asInstanceOf[ScentryConfiguration]
+
+
 
   private def unauthenticated = {
     status = 403
