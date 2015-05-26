@@ -45,6 +45,13 @@ class AuthServletSpec extends ScalatraFlatSpec with ShouldMatchers with BeforeAn
     }
   }
 
+  "POST /account/login" should "fail if an invalid username is supplied" in {
+    post("/account/login", Map("username" -> "badUser", "password" -> "badPassword")) {
+      assert(status == 302)
+      // assert(flash.contains("Invalid username password combination."))
+    }
+  }
+
   "GET /account/logout" should "logout a user" in {
     session {
       // Login the user.
@@ -55,6 +62,17 @@ class AuthServletSpec extends ScalatraFlatSpec with ShouldMatchers with BeforeAn
         assert(status == 302)
       }
     }
+  }
+
+  "GET /account/logout" should "redirect  an unathenticated user" in {
+    session {
+
+      get("/account/logout") {
+        // assert(body.contains("Logged out successfuly."))
+        assert(status == 302)
+      }
+    }
+
   }
 
 

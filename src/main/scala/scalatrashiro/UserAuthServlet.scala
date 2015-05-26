@@ -21,8 +21,6 @@ class UserAuthServlet(val afterAction: String, val loginUrl: String) extends Sca
       token.setRememberMe(false)
       currentUser.login(token)
 
-      //flash("success") =
-      // this += ("success","\"Logged in successfuly.\"")
       this.flash("success") = "Logged in successfuly."
 
       redirect(afterAction)
