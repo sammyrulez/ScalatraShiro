@@ -94,17 +94,49 @@ You might choose to run the authorization checks  in a before() filter in your c
 
 ###Login and Logout
 
+If you just have a user/password based authentication a UserAuthServlet is provided by Scalatrashiro. Just register is in your bootstrap class and point to the login/logout routes
+
+If you have complex / custom authentication you can use Apache Shiro authentication api directly (https://shiro.apache.org/authentication.html#Authentication-Step1%3ACollecttheSubject%27sprincipalsandcredentials)
 
 
-###Access control
+```scala
+    val currentUser = SecurityUtils.getSubject()
+
+    try {
+      val token = // generate a  org.apache.shiro.authc.AuthenticationToken
+
+        currentUser.login(token)
+      } catch {
+            case uae: UnknownAccountException => {
+             ...
+            }
+            case ice: IncorrectCredentialsException => {
+              ...
+            }
+            case lae: LockedAccountException => {
+             ...
+            }
+            case ae: AuthenticationException => {
+              ...
+            }
+          }
+
+```
+
+
+###Access control methods
 
 You can check both roles and permissions (https://shiro.apache.org/authorization.html#Authorization-Permissions)
 
-* requiresAuthentication
+* requiresAuthentication: current user must be authenticated
 
-* requiresRole
+* requiresRole: current user must have the  role specified as parameter ( or at least one of the role if a List[String] is passed )
 
-* requiresAllRoles
+* requiresAllRoles: current user must have all the roles in a  List[String] specified  as parameter
+
+* requiresPermission: current user must have the  permission specified as parameter
+
+* requiresAllPermissions: current user must have all the permissions in a  List[String] specified  as parameter
 
 
 
