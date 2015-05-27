@@ -52,7 +52,7 @@ In order to make use of Shiro in our web application we must first define a Shir
         </filter-mapping>
 ```
 
-Configure Shiro through an INI file. For complete details refer to Shiro Documentation https://shiro.apache.org/configuration.html
+Configure Shiro through an INI file. For complete details refer to [Shiro Documentation](https://shiro.apache.org/configuration.html)
 
 This is an example of minimal configuration with two users ( 'testuser' and 'admin' ) and two roles ('user' and 'admin')
 
@@ -96,7 +96,7 @@ You might choose to run the authorization checks  in a before() filter in your c
 
 If you just have a user/password based authentication a UserAuthServlet is provided by Scalatrashiro. Just register is in your bootstrap class and point to the login/logout routes
 
-If you have complex / custom authentication you can use Apache Shiro authentication api directly (https://shiro.apache.org/authentication.html#Authentication-Step1%3ACollecttheSubject%27sprincipalsandcredentials)
+If you have complex / custom authentication you can use [Apache Shiro authentication api!](https://shiro.apache.org/authentication.html#Authentication-Step1%3ACollecttheSubject%27sprincipalsandcredentials) directly
 
 
 ```scala
