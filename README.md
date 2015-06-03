@@ -4,8 +4,9 @@
 [![Coverage Status](https://coveralls.io/repos/sammyrulez/ScalatraShiro/badge.svg)](https://coveralls.io/r/sammyrulez/ScalatraShiro)
 
 
-ScalatraShiro is an itegration to enable the use of Apache Shiro in Scalatra Application.
-It is not a replacement for scalatra auth (Scentry) but exteds it with a authorizazion layer ( roles and permissions)
+ScalatraShiro is an integration to enable the use of Apache Shiro in Scalatra Application.
+It is not a replacement for scalatra auth (Scentry) but extends it with a authorization layer ( roles and permissions). Also Shiro provides several implementations for persistence and integrations with SSO systems ( CAS etc.)
+
 
 ##Installation
 
@@ -96,7 +97,7 @@ You might choose to run the authorization checks  in a before() filter in your c
 
 If you just have a user/password based authentication a UserAuthServlet is provided by Scalatrashiro. Just register is in your bootstrap class and point to the login/logout routes
 
-If you have complex / custom authentication you can use [Apache Shiro authentication api!](https://shiro.apache.org/authentication.html#Authentication-Step1%3ACollecttheSubject%27sprincipalsandcredentials) directly
+If you have complex / custom authentication you can use [Apache Shiro authentication api](https://shiro.apache.org/authentication.html#Authentication-Step1%3ACollecttheSubject%27sprincipalsandcredentials) directly
 
 
 ```scala
@@ -126,7 +127,7 @@ If you have complex / custom authentication you can use [Apache Shiro authentica
 
 ###Access control methods
 
-You can check both roles and permissions (https://shiro.apache.org/authorization.html#Authorization-Permissions)
+You can check both [roles and permissions](https://shiro.apache.org/authorization.html#Authorization-Permissions)
 
 * requiresAuthentication: current user must be authenticated
 
