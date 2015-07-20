@@ -6,7 +6,7 @@
 
     <groupId>com.github.sammyrulez</groupId>
     <artifactId>scalatra.shiro</artifactId>
-    <version>1.0-RC1</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>Scalatra Shiro</name>
