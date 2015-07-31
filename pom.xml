@@ -13,6 +13,15 @@
     <description>Scalatra integration for Apache Shiro</description>
     <url>https://github.com/sammyrulez/ScalatraShiro</url>
 
+    <developers>
+        <developer>
+            <name>Sam Reghenzi</name>
+            <email>sammyrulez@gmail.dot.com</email>
+            <organization>sammyrulez</organization>
+            <organizationUrl>https://github.com/sammyrulez/</organizationUrl>
+        </developer>
+    </developers>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -22,6 +31,8 @@
     </licenses>
 
     <scm>
+        <connection>scm:git:git@github.com:sammyrulez/ScalatraShiro.git</connection>
+        <developerConnection>scm:git:git@github.com:sammyrulez/ScalatraShiro.git</developerConnection>
         <url>https://github.com/sammyrulez/ScalatraShiro</url>
     </scm>
     <ciManagement>
@@ -171,7 +182,37 @@
                 </configuration>
             </plugin>
 
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
+                <configuration>
+                    <show>private</show>
+                    <nohelp>true</nohelp>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -204,6 +245,20 @@
                     <!--suppress MavenModelInspection -->
                     <repoToken>${env.COVERALL_TOKEN}</repoToken>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
