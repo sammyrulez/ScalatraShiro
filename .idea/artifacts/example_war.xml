@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="example:war">
-    <output-path>$PROJECT_DIR$/../ScalatraShiroDemo/target</output-path>
-    <root id="archive" name="bouncer-ex.war">
-      <element id="artifact" artifact-name="example:war exploded" />
-    </root>
-  </artifact>
-</component>
