@@ -95,7 +95,7 @@ You might choose to run the authorization checks  in a before() filter in your c
 
 ###Login and Logout
 
-If you just have a user/password based authentication a UserAuthServlet is provided by ScalatraShiro. Just register it in your bootstrap class and point to the login/logout routes.
+If you just have a user/password based authentication a [UserAuthServlet](https://github.com/sammyrulez/ScalatraShiro/blob/master/src/main/scala/scalatrashiro/UserAuthServlet.scala) is provided by ScalatraShiro. Just register it in your bootstrap class and point to the login/logout routes.
 
 If you have complex / custom authentication you can use [Apache Shiro authentication api](https://shiro.apache.org/authentication.html#Authentication-Step1%3ACollecttheSubject%27sprincipalsandcredentials) directly
 
