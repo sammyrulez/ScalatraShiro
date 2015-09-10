@@ -1,2 +1,2 @@
-language: java
-script: mvn clean cobertura:cobertura coveralls:report
+language: scala
+script: sbt test
