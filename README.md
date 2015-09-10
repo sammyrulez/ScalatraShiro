@@ -16,13 +16,13 @@ It is not a replacement for scalatra auth (Scentry) but extends it with a author
 <dependency>
 			<groupId>com.github.sammyrulez</groupId>
 			<artifactId>scalatra.shiro</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.2</version>
 </dependency>
 ```
 
 ### SBT
 ```scala
-libraryDependencies += "com.github.sammyrulez" % "scalatra.shiro" % "1.0.0"
+libraryDependencies += "com.github.sammyrulez" %% "scalatra.shiro" % "1.0.2"
 ```
 
 
