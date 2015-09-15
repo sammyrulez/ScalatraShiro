@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/sammyrulez/ScalatraShiro.svg?branch=master)](https://travis-ci.org/sammyrulez/ScalatraShiro)
 [![Coverage Status](https://coveralls.io/repos/sammyrulez/ScalatraShiro/badge.svg)](https://coveralls.io/r/sammyrulez/ScalatraShiro)
+[![Dependency Status](https://www.versioneye.com/user/projects/55f7d40d3ed8940017000594/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55f7d40d3ed8940017000594)
 
 
 ScalatraShiro is an integration to enable the use of Apache Shiro in Scalatra Application.
