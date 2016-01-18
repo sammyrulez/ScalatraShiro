@@ -10,6 +10,8 @@ trait Authentication extends ScalatraBase with ScalateSupport with ScentrySuppor
 
   private def currentUser = SecurityUtils.getSubject()
 
+  protected val loginUrl: String
+
   protected def fromSession = {
     case id: String => currentUser
   }
@@ -24,7 +26,7 @@ trait Authentication extends ScalatraBase with ScalateSupport with ScentrySuppor
 
   private def unauthenticated = {
     status = 403
-    redirect("/login")
+    redirect(loginUrl)
   }
 
   private def unauthorized = {

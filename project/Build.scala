@@ -4,7 +4,7 @@ import sbt._
 
 object Build extends sbt.Build {
   val buildOrganisation = "com.github.sammyrulez"
-  val buildVersion = "1.0.2"
+  val buildVersion = "1.1.0"
   val buildScalaVersion = "2.11.6"
   val ScalatraVersion = "2.3.0"
   val buildScalaOptions = Seq(

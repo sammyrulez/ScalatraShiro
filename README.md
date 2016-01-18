@@ -89,6 +89,8 @@ Every controller you want to perform security checks must extends the Authentica
 ```scala
 class MainServlet extends ScalatraServlet with Authentication with ...
 
+override protected val loginUrl: String = "/login"
+
 ```
 
 You might choose to run the authorization checks  in a before() filter in your controller, rather than hitting it in each action, to secure every method. As a best practice you should group routes with same access policies in one controller.

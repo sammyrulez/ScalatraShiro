@@ -40,4 +40,6 @@ trait WebStack extends ScalatraServlet with ScalateSupport with MethodOverride w
     response.setStatus(404)
     ssp("/error/404.ssp")
   }
+
+  override protected val loginUrl: String = "/login"
 }
